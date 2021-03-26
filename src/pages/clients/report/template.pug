@@ -1,0 +1,25 @@
+.row
+  .col-12
+    .h1 Reporte de Ventas del cliente Frank Orozco
+  .col-12
+    card(type="chart")
+      template(v-slot:header)
+        h5.title.d-inline Ventas Acumuladas
+        h3.d-inline.pull-right Q {{totalAcumulado}}
+      .chart-area
+        line-chart( style="height: 100%" :chart-data="chartDataAcumulada" :extra-options="chartOptions")
+  .col-12
+    card(type="chart")
+      template(v-slot:header)
+        h5.title.d-inline Ventas del Ultimo Año
+        h3.d-inline.pull-right Q {{totalAnio}}
+      .chart-area
+        line-chart( style="height: 100%" :chart-data="chartData" :extra-options="chartOptions")
+  .col-12
+    card(type="chart")
+      template(v-slot:header)
+        h5.title.d-inline Ventas del Ultimo Mes
+          h3.d-inline.pull-right Q {{totalMes}}
+      .chart-area
+        line-chart( style="height: 100%" :chart-data="chartDataMonth" :extra-options="chartOptions")
+

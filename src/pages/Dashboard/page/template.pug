@@ -1,0 +1,51 @@
+.row
+  .col-sm-6.col-xl-3.mb-3
+    b-card.overflow-hidden.h-100(no-body)
+      b-row.h-100(no-gutters)
+        b-col.text-center.my-auto(md="6")
+          font-awesome-icon(icon="users" size="7x")
+        b-col.my-auto(md="6")
+          b-card-body.text-center(title="Total Clientes")
+            b-card-text.h1.font-weight-bold 123,248
+  .col-sm-6.col-xl-3.mb-3
+    b-card.overflow-hidden.h-100(no-body)
+      b-row.h-100(no-gutters)
+        b-col.my-auto.text-center(md="6")
+          font-awesome-icon(icon="users" size="7x")
+        b-col.my-auto(md="6")
+          b-card-body.text-center.my-auto(title="Clientes en el Mes")
+            b-card-text.h1.font-weight-bold 25
+  .col-sm-6.col-xl-3.mb-3
+    b-card.overflow-hidden.h-100.mb-3(no-body)
+      b-row.h-100(no-gutters)
+        b-col.text-center.my-auto(md="6" lg="6")
+          font-awesome-icon(icon="users" size="7x")
+        b-col.my-auto(md="6")
+          b-card-body.text-center.my-auto(title="Clientes en el Año")
+            b-card-text.h1.font-weight-bold 234
+  .col-sm-6.col-xl-3.mb-3
+    b-card.overflow-hidden.h-100.mb-3(no-body)
+      b-row.h-100(no-gutters)
+        b-col.text-center.my-auto(md="6")
+          font-awesome-icon(icon="dollar-sign" size="7x")
+        b-col.my-auto(md="6")
+          b-card-body.text-center.my-auto(title="Ventas al Año")
+            b-card-text.h1.font-weight-bold 425
+  .col-8
+    card(type="chart")
+      template(v-slot:header)
+        h5.title.d-inline Clientes Por Departamento
+      .chart-area
+        bar-chart( style="height: 100%" :chart-data="chartDataClientes" :extra-options="chartOptions")
+  .col-4
+    card(type="chart")
+      template(v-slot:header)
+        h5.title.d-inline Clientes Por Edad
+      .chart-area
+        bar-chart( style="height: 100%" :chart-data="chartDataEdad" :extra-options="chartOptions")
+  .col-12
+    card(type="chart")
+      template(v-slot:header)
+        h5.title.d-inline Ventas del año
+      .chart-area
+        line-chart( style="height: 100%" :chart-data="chartDataVentas" :extra-options="chartOptions")

@@ -1,0 +1,27 @@
+.row
+  .col-12
+    card
+      h5.title(slot:header) Crear Cliente
+      .row
+        .col-md-5.pr-md-1
+          base-input(
+            label="Nombre"
+          )
+        .col-md-5.pr-md-1
+          base-input(
+            label="Departamento"
+          )
+        .col-md-5.pr-md-1
+          base-input(
+            label="Fecha de Nacimiento"
+          )
+            b-form-datepicker.mb-2
+        .col-md-5.pr-md-1
+          base-input(
+            label="Nit"
+          )
+        .col-12
+          button.btn.btn-danger.pull-right
+            router-link(to="/clients") Cancelar
+          button.btn.btn-success.pull-right
+            router-link(to="/clients") Agregar

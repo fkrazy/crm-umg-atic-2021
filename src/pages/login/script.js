@@ -1,4 +1,5 @@
 import { BaseInput } from "@/components";
+import router from "@/router";
 const axios = require('axios');
 
 export default {
@@ -21,6 +22,8 @@ export default {
         })
         .then(response => {
           debugger
+          sessionStorage.setItem("token", response.data)
+          router.replace("/")
         }).catch(error => {
           this.showError(error.response.data.detail)
       })

@@ -92,7 +92,7 @@
               </li>
               <div class="dropdown-divider"></div>
               <li class="nav-link">
-                <a href="#" class="nav-item dropdown-item">Log out</a>
+                <button class="nav-item dropdown-item" @click="logout()">Cerrar Sesi&oacute;n</button>
               </li>
             </base-dropdown>
           </ul>
@@ -104,6 +104,7 @@
 <script>
   import { CollapseTransition } from 'vue2-transitions';
   import Modal from '@/components/Modal';
+  import router from "@/router";
 
   export default {
     components: {
@@ -128,6 +129,10 @@
       };
     },
     methods: {
+      logout() {
+        sessionStorage.clear();
+        router.replace({name: "Login"})
+      },
       capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       },

@@ -7,6 +7,7 @@ const Dashboard = () => import(/* webpackChunkName: "dashboard" */"@/pages/Dashb
 const ClientList = () => import(/* webpackChunkName: "common" */ "@/pages/clients/list/index.vue");
 const ClientEdit = () => import(/* webpackChunkName: "common" */ "@/pages/clients/edit/index.vue");
 const ClientReport = () => import(/* webpackChunkName: "common" */ "@/pages/clients/report/index.vue");
+const LoginPage = () => import(/* webpackChunkName: "common" */ "@/pages/login/index.vue");
 
 const routes = [
   {
@@ -44,6 +45,11 @@ const routes = [
         ]
       }
     ]
+  },
+  {
+    path:"/login",
+    component: LoginPage,
+    name: "Login"
   },
   { path: "*", component: NotFound },
 ];

@@ -1,47 +1,40 @@
 import { BaseTable } from "@/components";
+const axios = require('axios');
+
 
 export default {
-    name: "ColegioList",
+    name: "ClientList",
     components: {BaseTable},
     data: function () {
         return {
           fields: [
-            {key: 'name', label: 'Nombre'},
-            {key: 'city', label: 'Departamento'},
-            {key: 'years', label: 'Edad'},
-            {key: 'nit', label: 'Nit'},
+            {key: 'nombre', label: 'Nombre'},
+            {key: 'telefono', label: 'Telefono'},
+            {key: 'estado', label: 'Estado'},
+            {key: 'departamento', label: 'Departamento'},
             {key: 'actions', label: 'Acciones'}
           ],
-          clients: [{
-            name:'Frank Orozco',
-            city: 'Quetzaltenango',
-            years: 33,
-            nit: '483109-9',
-            actions: ''
-          },{
-            name:'Frank Orozco',
-            city: 'Quetzaltenango',
-            years: 33,
-            nit: '483109-9',
-            actions: ''
-          },{
-            name:'Frank Orozco',
-            city: 'Quetzaltenango',
-            years: 33,
-            nit: '483109-9',
-            actions: ''
-          },{
-            name:'Frank Orozco',
-            city: 'Quetzaltenango',
-            years: 33,
-            nit: '483109-9',
-            actions: ''
-          }
-          ],
+          clients: [],
           isBusy: true
         }
       },
   created() {
+      let token = JSON.parse(sessionStorage.getItem("token"))
+      axios.get("http://crm-umg.herokuapp.com/api/clientes/", {
+        headers: {
+          'Authorization': `Bearer ${token.access}`
+        }
+      }).then(({data}) => {
+        this.clients = data.map((val) => {
+          return {
+            nombre: `${val.nombres} ${val.apellidos}`,
+            telefono: val.telefono,
+            estado: val.estado,
+            departamento: val.departamento,
+            actions: val.id
+          }
+        })
+      }).catch(error => this.showError(error.response.data.detail))
   },
   methods : {
     deleteCourse(snap) {

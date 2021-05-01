@@ -6,7 +6,7 @@
           font-awesome-icon(icon="users" size="7x")
         b-col.my-auto(md="6")
           b-card-body.text-center(title="Total Clientes")
-            b-card-text.h1.font-weight-bold 123,248
+            b-card-text.h1.font-weight-bold {{totalClients}}
   .col-sm-6.col-xl-3.mb-3
     b-card.overflow-hidden.h-100(no-body)
       b-row.h-100(no-gutters)
@@ -14,7 +14,7 @@
           font-awesome-icon(icon="users" size="7x")
         b-col.my-auto(md="6")
           b-card-body.text-center.my-auto(title="Clientes en el Mes")
-            b-card-text.h1.font-weight-bold 25
+            b-card-text.h1.font-weight-bold {{clientMonth}}
   .col-sm-6.col-xl-3.mb-3
     b-card.overflow-hidden.h-100.mb-3(no-body)
       b-row.h-100(no-gutters)
@@ -22,7 +22,7 @@
           font-awesome-icon(icon="users" size="7x")
         b-col.my-auto(md="6")
           b-card-body.text-center.my-auto(title="Clientes en el Año")
-            b-card-text.h1.font-weight-bold 234
+            b-card-text.h1.font-weight-bold {{ClientYear}}
   .col-sm-6.col-xl-3.mb-3
     b-card.overflow-hidden.h-100.mb-3(no-body)
       b-row.h-100(no-gutters)
@@ -30,7 +30,7 @@
           font-awesome-icon(icon="dollar-sign" size="7x")
         b-col.my-auto(md="6")
           b-card-body.text-center.my-auto(title="Ventas al Año")
-            b-card-text.h1.font-weight-bold 425
+            b-card-text.h1.font-weight-bold {{VentasAnio}}
   .col-8
     card(type="chart")
       template(v-slot:header)

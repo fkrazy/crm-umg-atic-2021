@@ -21,7 +21,7 @@ export default {
       },
   created() {
       let token = JSON.parse(sessionStorage.getItem("token"))
-      axios.get("http://crm-umg.herokuapp.com/api/clientes/", {
+      axios.get("https://crm-umg.herokuapp.com/api/clientes/", {
         headers: {
           'Authorization': `Bearer ${token.access}`
         }
@@ -46,7 +46,7 @@ export default {
       }).then(async (result) => {
         let token = JSON.parse(sessionStorage.getItem("token"))
         if (result.isConfirmed) {
-          axios.delete("http://crm-umg.herokuapp.com/api/clientes/" + id, {
+          axios.delete("https://crm-umg.herokuapp.com/api/clientes/" + id, {
             headers: {
               'Authorization': `Bearer ${token.access}`
             }}).then( _ => {

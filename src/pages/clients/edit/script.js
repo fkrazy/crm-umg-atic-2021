@@ -27,7 +27,7 @@ export default {
       },
   created() {
     let token = JSON.parse(sessionStorage.getItem("token"))
-    axios.get("http://crm-umg.herokuapp.com/api/departamentos/", {
+    axios.get("https://crm-umg.herokuapp.com/api/departamentos/", {
         headers: {
           'Authorization': `Bearer ${token.access}`
         }
@@ -39,7 +39,7 @@ export default {
     let id = this.$route.params.id
     this.editing = !!id
     if (this.editing) {
-      axios.get("http://crm-umg.herokuapp.com/api/clientes/" + id, {
+      axios.get("https://crm-umg.herokuapp.com/api/clientes/" + id, {
         headers: {
           'Authorization': `Bearer ${token.access}`
         }}).then( ({data}) => {
@@ -51,7 +51,7 @@ export default {
   methods: {
     save () {
         let token = JSON.parse(sessionStorage.getItem("token"))
-        axios.post("http://crm-umg.herokuapp.com/api/clientes/", this.cliente, {
+        axios.post("https://crm-umg.herokuapp.com/api/clientes/", this.cliente, {
           headers: {
             'Authorization': `Bearer ${token.access}`
           }
@@ -64,7 +64,7 @@ export default {
       },
     edit() {
       let token = JSON.parse(sessionStorage.getItem("token"))
-      axios.put(`http://crm-umg.herokuapp.com/api/clientes/${this.cliente.id}/`, this.cliente, {
+      axios.put(`https://crm-umg.herokuapp.com/api/clientes/${this.cliente.id}/`, this.cliente, {
         headers: {
           'Authorization': `Bearer ${token.access}`
         }

@@ -43,7 +43,7 @@ const routes = [
             component: ClientEdit
           },
           {
-            path: 'report',
+            path: 'report/:id',
             name: 'reporte',
             component: ClientReport
           }

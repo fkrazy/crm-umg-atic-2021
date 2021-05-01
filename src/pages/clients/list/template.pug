@@ -8,7 +8,7 @@
       .table-responsive
         b-table(:items="clients" :fields="fields")
           template(#cell(actions)="data")
-            router-link(to='/clients/report')
+            router-link(:to="{name:'reporte', params: {id:data.value}}")
               button.btn.btn-secondary.btn-sm
                 font-awesome-icon(icon="eye")
 

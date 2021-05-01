@@ -1,4 +1,5 @@
 import { BaseTable } from "@/components";
+import router from "@/router";
 const axios = require('axios');
 
 
@@ -43,14 +44,15 @@ export default {
         text: `Se va a eliminar el cliente ${id}`,
         showCancelButton: true,
       }).then(async (result) => {
+        let token = JSON.parse(sessionStorage.getItem("token"))
         if (result.isConfirmed) {
           axios.delete("http://crm-umg.herokuapp.com/api/clientes/" + id, {
             headers: {
               'Authorization': `Bearer ${token.access}`
-            }}).then( ({data}) => {
+            }}).then( _ => {
             this.showSucces("Cliente eliminado correctamente")
+            this.clients = this.clients.filter(client => client.actions !== id)
           }).catch(error => this.showError(error.response.data.detail))
-          snap.ref.delete()
         }
       })
     },

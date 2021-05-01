@@ -1,6 +1,8 @@
 import { BaseInput, BaseDropdown } from "@/components";
 const axios = require('axios');
 let estados = [{text:"Activo", value: 1}, {text:"Inactivo", value: 0}]
+import router from "@/router";
+
 export default {
     name: "ColegioList",
     components: {BaseInput, BaseDropdown},
@@ -55,8 +57,10 @@ export default {
           }
         }).then(() => {
           this.showSucces("Cliente creado exitosamente")
-          this.router.replace({name:"clientes"})
-        }).catch(error => this.showError(error.response.data.detail))
+          router.replace({name:"clientes"})
+        }).catch(error => {
+          this.showError(error.response.data.detail)
+        })
       },
     edit() {
       let token = JSON.parse(sessionStorage.getItem("token"))
@@ -66,7 +70,7 @@ export default {
         }
       }).then(() => {
         this.showSucces("Cliente editado exitosamente")
-        this.router.replace({name:"clientes"})
+        router.replace({name:"clientes"})
       }).catch(error => this.showError(error.response.data.detail))
     }
   }

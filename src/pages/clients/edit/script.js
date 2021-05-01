@@ -6,6 +6,7 @@ export default {
     components: {BaseInput, BaseDropdown},
     data: function () {
         return {
+          editing:false,
           estados: estados,
           isBusy: true,
           departamentos: [],
@@ -33,9 +34,20 @@ export default {
           return {text: val.nombre, value: val.id}
         });
     }).catch(error => this.showError(error.response.data.detail))
+    let id = this.$route.params.id
+    this.editing = !!id
+    if (this.editing) {
+      axios.get("http://crm-umg.herokuapp.com/api/clientes/" + id, {
+        headers: {
+          'Authorization': `Bearer ${token.access}`
+        }}).then( ({data}) => {
+        data.departamento = data.departamento.id
+        this.cliente = data
+      }).catch(error => this.showError(error.response.data.detail))
+    }
   },
   methods: {
-      save () {
+    save () {
         let token = JSON.parse(sessionStorage.getItem("token"))
         axios.post("http://crm-umg.herokuapp.com/api/clientes/", this.cliente, {
           headers: {
@@ -45,6 +57,17 @@ export default {
           this.showSucces("Cliente creado exitosamente")
           this.router.replace({name:"clientes"})
         }).catch(error => this.showError(error.response.data.detail))
-      }
+      },
+    edit() {
+      let token = JSON.parse(sessionStorage.getItem("token"))
+      axios.put(`http://crm-umg.herokuapp.com/api/clientes/${this.cliente.id}/`, this.cliente, {
+        headers: {
+          'Authorization': `Bearer ${token.access}`
+        }
+      }).then(() => {
+        this.showSucces("Cliente editado exitosamente")
+        this.router.replace({name:"clientes"})
+      }).catch(error => this.showError(error.response.data.detail))
+    }
   }
 }

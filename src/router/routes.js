@@ -22,7 +22,7 @@ const routes = [
       },
       {
         path: "clients",
-        redirect: "/clientes",
+        redirect: "/clients",
         component: {
           render (c) { return c('router-view') }
         },
@@ -34,6 +34,11 @@ const routes = [
           },
           {
             path: 'create',
+            name: 'crear',
+            component: ClientEdit
+          },
+          {
+            path: ':id',
             name: 'crear',
             component: ClientEdit
           },

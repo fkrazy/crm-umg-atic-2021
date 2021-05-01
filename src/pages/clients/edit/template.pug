@@ -40,4 +40,4 @@
         .col-12
           button.btn.btn-danger.pull-right
             router-link(to="/clients") Cancelar
-          button.btn.btn-success.pull-right( @click="save") Agregar
+          button.btn.btn-success.pull-right( @click="editing ? edit() : save()") {{editing ? "Editar" : "Guardar"}}

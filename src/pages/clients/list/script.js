@@ -36,33 +36,23 @@ export default {
         })
       }).catch(error => this.showError(error.response.data.detail))
   },
-  methods : {
-    deleteCourse(snap) {
+  methods: {
+    deleteClient(id) {
       this.$swal({
         title: 'Estas Seguro?',
-        text: `Se va a eliminar el colegio ${snap.data().name}`,
+        text: `Se va a eliminar el cliente ${id}`,
         showCancelButton: true,
       }).then(async (result) => {
         if (result.isConfirmed) {
-          try {
-          } catch (e) {
-            alert('error')
-          }
+          axios.delete("http://crm-umg.herokuapp.com/api/clientes/" + id, {
+            headers: {
+              'Authorization': `Bearer ${token.access}`
+            }}).then( ({data}) => {
+            this.showSucces("Cliente eliminado correctamente")
+          }).catch(error => this.showError(error.response.data.detail))
           snap.ref.delete()
         }
       })
     },
-    validateSchool(snap) {
-      this.$swal({
-        title: 'Estas Seguro?',
-        text: `Se va a validar el colegio ${snap.data().name}`,
-        showCancelButton: true,
-      }).then(async (result) => {
-        if (result.isConfirmed) {
-          await snap.ref.update({state: 'validated'})
-          this.$swal('Colegio Validado')
-        }
-      })
-    }
   }
 }

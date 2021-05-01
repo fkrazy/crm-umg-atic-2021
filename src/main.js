@@ -26,10 +26,11 @@ import { faEdit, faTimes, faEye, faDollarSign, faUsers } from '@fortawesome/free
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVue } from 'bootstrap-vue'
-import NotificationTemplate from "@/pages/Notifications/NotificationTemplate";
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 library.add(faEdit, faTimes, faEye, faDollarSign, faUsers)
-
+Vue.use(VueSweetalert2);
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
@@ -37,6 +38,7 @@ Vue.use(BootstrapVue)
 Vue.use(BlackDashboard);
 Vue.use(VueRouter);
 Vue.use(RouterPrefetch);
+
 Vue.mixin({
   methods: {
     showError: function (message) {

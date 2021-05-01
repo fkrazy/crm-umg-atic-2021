@@ -30,7 +30,7 @@ export default {
             nombre: `${val.nombres} ${val.apellidos}`,
             telefono: val.telefono,
             estado: val.estado,
-            departamento: val.departamento,
+            departamento: val.departamento.nombre ,
             actions: val.id
           }
         })

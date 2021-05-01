@@ -50,6 +50,17 @@ Vue.mixin({
         timeout: 0
       });
     },
+    showSucces: function (message) {
+      this.$notify({
+        message: message,
+        title: "Exito",
+        icon: "tim-icons icon-bell-55",
+        horizontalAlign: "right",
+        verticalAlign: "bottom",
+        type: "success",
+        timeout: 0
+      });
+    },
   },
 })
 

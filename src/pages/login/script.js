@@ -21,8 +21,7 @@ export default {
           username: this.username, password: this.password
         })
         .then(response => {
-          debugger
-          sessionStorage.setItem("token", response.data)
+          sessionStorage.setItem("token", JSON.stringify(response.data))
           router.replace("/")
         }).catch(error => {
           this.showError(error.response.data.detail)

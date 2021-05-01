@@ -12,7 +12,7 @@
       <slot :row="item">
         <td v-for="(column, index) in columns"
             :key="'cell-' + index">
-          <slot :name="column.key || column">
+          <slot :name="column.key || column" >
             {{itemValue(item, column)}}
           </slot>
         </td>

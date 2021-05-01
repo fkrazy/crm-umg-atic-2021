@@ -2,7 +2,7 @@ import LineChart from '@/components/Charts/LineChart';
 import config from "../../../config";
 
 export default {
-    name: "ColegioList",
+    name: "ClientReport",
     components: {LineChart},
     data: function () {
         return {

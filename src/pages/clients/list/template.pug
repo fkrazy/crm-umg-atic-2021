@@ -3,15 +3,17 @@
     card
       template(v-slot:header)
         h5.title.d-inline LISTADO DE CLIENTES
-        button.btn.btn-success.pull-right
-          router-link(to="/clients/create") Agregar
+        router-link(to="/clients/create")
+          button.btn.btn-success.pull-right Agregar
       .table-responsive
-        base-table(:data="clients" :columns="fields")
-          template(v-slot:actions)
-            button.btn.btn-secondary
-              router-link(to='/clients/report')
+        b-table(:items="clients" :fields="fields")
+          template(#cell(actions)="data")
+            router-link(:to="{name:'reporte', params: {id:data.value}}")
+              button.btn.btn-secondary.btn-sm
                 font-awesome-icon(icon="eye")
-            button.btn.btn-warning.ml-3
-              font-awesome-icon(icon="edit")
-            button.btn.btn-danger.ml-3
+
+            router-link(:to="`/clients/${data.value}`")
+              button.btn.btn-warning.ml-3.btn-sm
+                font-awesome-icon(icon="edit")
+            button.btn.btn-danger.ml-3.btn-sm(@click="deleteClient(data.value)")
               font-awesome-icon(icon="times")

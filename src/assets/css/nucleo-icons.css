@@ -544,3 +544,19 @@ Created using IcoMoon - icomoon.io
 .icon-components::before {
   content: "\ea65";
 }
+
+select option {
+  background: #c53838;
+}
+
+.dropdown-menu {
+  background: #c53838!important;
+}
+
+.form-control.focus {
+  background-color: transparent!important;
+}
+
+.b-form-datepicker {
+  height: calc(2.25rem + 2px)!important;
+}

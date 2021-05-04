@@ -33,6 +33,11 @@ const routes = [
             component: ClientList
           },
           {
+            path: ':search',
+            name: "clientes busqueda",
+            component: ClientList
+          },
+          {
             path: 'create',
             name: 'crear',
             component: ClientEdit

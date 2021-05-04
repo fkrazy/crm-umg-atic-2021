@@ -20,7 +20,11 @@ export default {
         }
       },
   created() {
-      let token = JSON.parse(sessionStorage.getItem("token"))
+    let token = JSON.parse(sessionStorage.getItem("token"))
+    if (this.$route.params.search) {
+      alert(this.$route.params.search)
+    }
+    else {
       axios.get("https://crm-umg.herokuapp.com/api/clientes/", {
         headers: {
           'Authorization': `Bearer ${token.access}`
@@ -36,6 +40,8 @@ export default {
           }
         })
       }).catch(error => this.showError(error.response.data.detail))
+    }
+
   },
   methods: {
     deleteClient(id) {

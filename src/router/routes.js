@@ -44,7 +44,7 @@ const routes = [
           },
           {
             path: ':id',
-            name: 'crear',
+            name: 'edit',
             component: ClientEdit
           },
           {

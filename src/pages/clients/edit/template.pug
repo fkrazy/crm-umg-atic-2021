@@ -4,39 +4,68 @@
       h5.title(slot:header) Crear Cliente
       .row
         .col-md-5.pr-md-1
-          base-input(
-            label="Nombres" v-model="cliente.nombres"
+          b-form-group(
+            label="Nombres"
+            :state="!errors['nombres'] || errors['nombres'].length === 0"
           )
+            b-form-input(v-model="cliente.nombres")
+            b-form-invalid-feedback(v-for="myerror in errors['nombres']" :state="false") {{myerror}}
         .col-md-5.pr-md-1
-          base-input(
-            label="Apellidos" v-model="cliente.apellidos"
+          b-form-group(
+            label="Apellidos"
+            :state="!errors['apellidos'] || errors['apellidos'].length === 0"
           )
+            b-form-input(v-model="cliente.apellidos")
+            b-form-invalid-feedback(v-for="myerror in errors['apellidos']" :state="false") {{myerror}}
         .col-md-5.pr-md-1
-          base-input(
-            label="Dirección" v-model="cliente.direccion"
+          b-form-group(
+            label="Dirección"
+            :state="!errors['direccion'] || errors['direccion'].length === 0"
           )
+            b-form-input(v-model="cliente.direccion")
+            b-form-invalid-feedback(v-for="myerror in errors['direccion']" :state="false") {{myerror}}
         .col-md-5.pr-md-1
-          base-input(
-            label="Telefono" v-model="cliente.telefono"
+          b-form-group(
+            label="Telefono"
+            :state="!errors['telefono'] || errors['telefono'].length === 0"
           )
+            b-form-input(v-model="cliente.telefono")
+            b-form-invalid-feedback(v-for="myerror in errors['telefono']" :state="false") {{myerror}}
         .col-md-5.pr-md-1
-          b-form-group(label="E-mail")
-            base-input(
-              v-model="cliente.email"
+          b-form-group(
+            label="E-mail"
+            :state="!errors['email'] || errors['email'].length === 0"
+          )
+            b-form-input(v-model="cliente.email")
+            b-form-invalid-feedback(v-for="myerror in errors['email']" :state="false") {{myerror}}
+        .col-md-5.pr-md-1
+          b-form-group(
+            label="Fecha de Nacimiento"
+            :state="!errors['fecha_nacimiento'] || errors['fecha_nacimiento'].length === 0"
             )
-        .col-md-5.pr-md-1
-          b-form-group(label="Fecha de Nacimiento")
             b-form-datepicker(v-model="cliente.fecha_nacimiento" style="height=calc(2.25rem + 2px)").mb-2
+            b-form-invalid-feedback(v-for="myerror in errors['fecha_nacimiento']" :state="false") {{myerror}}
         .col-md-5.pr-md-1
-          base-input(
-            label="Codigo" v-model="cliente.codigo"
+          b-form-group(
+            label="Codigo"
+            :state="!errors['codigo'] || errors['codigo'].length === 0"
           )
+            b-form-input(v-model="cliente.codigo" style="height=calc(2.25rem + 2px)").mb-2
+            b-form-invalid-feedback(v-for="myerror in errors['codigo']" :state="false") {{myerror}}
         .col-md-5.pr-md-1
-          b-form-group(label="Estado")
+          b-form-group(
+            label="Estado"
+            :state="!errors['estado'] || errors['estado'].length === 0"
+            )
             b-form-select(  :options="estados" v-model="cliente.estado")
+            b-form-invalid-feedback(v-for="myerror in errors['estado']" :state="false") {{myerror}}
         .col-md-5.pr-md-1
-          b-form-group(label="Departamento")
+          b-form-group(
+            label="Departamento"
+            :state="!errors['departamento'] || errors['departamento'].length === 0"
+          )
             b-form-select(  :options="departamentos" v-model="cliente.departamento")
+            b-form-invalid-feedback(v-for="myerror in errors['departamento']" :state="false") {{myerror}}
         .col-12
           button.btn.btn-danger.pull-right
             router-link(to="/clients") Cancelar

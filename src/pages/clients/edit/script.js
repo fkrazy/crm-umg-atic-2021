@@ -12,6 +12,17 @@ export default {
           estados: estados,
           isBusy: true,
           departamentos: [],
+          errors: {
+            nombres: "",
+            apellidos: "",
+            direccion: "",
+            telefono: "",
+            email: "",
+            fecha_nacimiento: "",
+            codigo: "",
+            estado: 1,
+            departamento: null
+          },
           cliente: {
             nombres: "",
             apellidos: "",
@@ -59,7 +70,9 @@ export default {
           this.showSucces("Cliente creado exitosamente")
           router.replace({name:"clientes"})
         }).catch(error => {
-          this.showError(error.response.data.detail)
+          this.errors = error.response.data
+          if(error.response.data.detail)
+            this.showError(error.response.data.detail)
         })
       },
     edit() {

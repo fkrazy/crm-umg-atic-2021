@@ -6,7 +6,7 @@
         .row.justify-content-center
           .col-md-5.pr-md-1
             b-form-group(
-              :state="errors['username'].length === 0"
+              :state="!errors['username'] || errors['username'].length === 0"
               label="Usuario"
             )
               b-form-input(v-model="username")
@@ -14,12 +14,11 @@
           .w-100
           .col-md-5.pr-md-1
             b-form-group(
-              :state="errors['password'].length === 0"
+              :state="!errors['username'] || errors['password'].length === 0"
               v-model="password"
-              type="password"
               label="Contraseña"
             )
-              b-form-input(v-model="password")
+              b-form-input(v-model="password" type="password")
               b-form-invalid-feedback(v-for="myerror in errors['password']" :state="false") {{myerror}}
           .col-12
             button.btn.btn-success.pull-right(@click="ingresar") Ingresar

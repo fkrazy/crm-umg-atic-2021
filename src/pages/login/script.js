@@ -29,6 +29,7 @@ export default {
           router.replace("/")
         }).catch(error => {
           this.errors = error.response.data
+        if(error.response.data.detail)
           this.showError(error.response.data.detail)
       })
     }

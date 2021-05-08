@@ -15,10 +15,11 @@
 
       <content-footer></content-footer>
     </div>
+    <!--
     <div class="fixed-bottom">
       <button class="btn btn-default rounded-circle pull-right" title="crear Ventas"><font-awesome-icon icon="dollar-sign"></font-awesome-icon></button>
       <button class="btn btn-default rounded-circle pull-right" title="crear Clientes"><font-awesome-icon icon="users"></font-awesome-icon></button>
-    </div>
+    </div> -->
   </div>
 </template>
 <style lang="scss">

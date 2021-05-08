@@ -18,9 +18,9 @@
               alt="">
           </div>
         </a>
-        <a href="/" class="simple-text logo-normal">
+        <router-link :to="{name:'dashboard'}" class="simple-text logo-normal">
           {{title}}
-        </a>
+        </router-link>
       </div>
       <slot>
 

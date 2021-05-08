@@ -2,7 +2,8 @@
   <div class="form-group"
        :class="{
           'input-group': hasIcon,
-          'input-group-focus': focused
+          'input-group-focus': focused,
+          'is-invalid': is_invalid
        }">
     <slot name="label">
       <label v-if="label" class="control-label">
@@ -39,6 +40,7 @@
     inheritAttrs: false,
     name: "base-input",
     props: {
+      is_invalid: null,
       label: {
         type: String,
         description: "Input label"

@@ -5,16 +5,21 @@
         h5.title(slot:header) Ingreso
         .row.justify-content-center
           .col-md-5.pr-md-1
-            base-input(
-              v-model="username"
+            b-form-group(
+              :state="errors['username'].length === 0"
               label="Usuario"
             )
+              b-form-input(v-model="username")
+              b-form-invalid-feedback(v-for="myerror in errors['username']" :state="false") {{myerror}}
           .w-100
           .col-md-5.pr-md-1
-            base-input(
+            b-form-group(
+              :state="errors['password'].length === 0"
               v-model="password"
               type="password"
               label="Contraseña"
             )
+              b-form-input(v-model="password")
+              b-form-invalid-feedback(v-for="myerror in errors['password']" :state="false") {{myerror}}
           .col-12
             button.btn.btn-success.pull-right(@click="ingresar") Ingresar

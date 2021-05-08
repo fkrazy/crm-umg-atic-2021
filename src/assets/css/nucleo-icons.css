@@ -560,3 +560,7 @@ select option {
 .b-form-datepicker {
   height: calc(2.25rem + 2px)!important;
 }
+
+.is-invalid > div >input   {
+  border-color: #ff8d72;
+}

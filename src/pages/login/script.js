@@ -9,7 +9,11 @@ export default {
         return {
           username: "",
           password: "",
-          isBusy: true
+          isBusy: true,
+          errors: {
+            username: [],
+            password: []
+          }
         }
       },
   created() {
@@ -24,6 +28,7 @@ export default {
           sessionStorage.setItem("token", JSON.stringify(response.data))
           router.replace("/")
         }).catch(error => {
+          this.errors = error.response.data
           this.showError(error.response.data.detail)
       })
     }

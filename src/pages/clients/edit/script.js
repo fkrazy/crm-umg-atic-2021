@@ -1,4 +1,5 @@
 import { BaseInput, BaseDropdown } from "@/components";
+import moment from 'moment';
 const axios = require('axios');
 let estados = [{text:"Activo", value: 1}, {text:"Inactivo", value: 0}]
 import router from "@/router";
@@ -29,6 +30,7 @@ export default {
             direccion: "",
             telefono: "",
             email: "",
+            fecha_creacion: moment(Date.now()).format(),
             fecha_nacimiento: "",
             codigo: "",
             estado: 1,
